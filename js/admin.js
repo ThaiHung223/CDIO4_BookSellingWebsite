@@ -35,10 +35,10 @@ function addChart(id, chartOption) {
     var ctx = document.getElementById(id).getContext('2d');
     var chart = new Chart(ctx, chartOption);
 }
-function addChart1(id, chartOption) {
-    var ctx = document.getElementById(id).getContext('2d');
-    var chart = new Chart(ctx, chartOption);
-}
+// function addChart1(id, chartOption) {
+//     var ctx = document.getElementById(id).getContext('2d');
+//     var chart = new Chart(ctx, chartOption);
+// }
 
 function createChartConfig(
     title = 'Title',
@@ -118,14 +118,14 @@ function addThongKe() {
     //     colors,
     // ));
 
-    addChart1('myChart2', createChartConfig(
-        'Doanh thu',
-        'doughnut', 
-        // Object.keys(thongKeHang), 
-        Object.values(thongKeHang).map(_ =>  _.doanhThu),
+    // addChart1('myChart2', createChartConfig(
+    //     'Doanh thu',
+    //     'doughnut', 
+    //     // Object.keys(thongKeHang), 
+    //     Object.values(thongKeHang).map(_ =>  _.doanhThu),
         
-        // colors,
-    ));
+    //     // colors,
+    // ));
 
     // var doughnutChart = copyObject(dataChart);
     //     doughnutChart.type = 'doughnut';

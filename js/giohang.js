@@ -1,6 +1,6 @@
 var currentuser; // user hiện tại, biến toàn cục
 window.onload = function () {
-    khoiTao();
+	khoiTao();
 
 	// autocomplete cho khung tim kiem
 	autocomplete(document.getElementById('search-box'), list_products);
@@ -87,7 +87,7 @@ function addProductToTable(user) {
 			<tr style="font-weight:bold; text-align:center">
 				<td colspan="4">TỔNG TIỀN: </td>
 				<td class="alignRight">` + numToString(totalPrice) + ` ₫</td>
-				<td class="thanhtoan" onclick="thanhToan()"> Thanh Toán </td>
+				<td style="display: flex;" onclick="thanhToan()"><div class="thanhtoan">Thanh toán tiền mặt</div><div class="thanhtoanck">Thanh toán chuyển khoản</div> </td>
 				<td class="xoaHet" onclick="xoaHet()"> Xóa hết </td>
 			</tr>
 		</tbody>
@@ -105,12 +105,12 @@ function xoaSanPhamTrongGioHang(i) {
 
 function thanhToan() {
 	var c_user = getCurrentUser();
-	if(c_user.off) {
-        alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
-        addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
-        return;
+	if (c_user.off) {
+		alert('Tài khoản của bạn hiện đang bị khóa nên không thể mua hàng!');
+		addAlertBox('Tài khoản của bạn đã bị khóa bởi Admin.', '#aa0000', '#fff', 10000);
+		return;
 	}
-	
+
 	if (!currentuser.products.length) {
 		addAlertBox('Không có mặt hàng nào cần thanh toán !!', '#ffb400', '#fff', 2000);
 		return;
@@ -139,6 +139,9 @@ function xoaHet() {
 // Cập nhật số lượng lúc nhập số lượng vào input
 function capNhatSoLuongFromInput(inp, masp) {
 	var soLuongMoi = Number(inp.value);
+	if (soLuongMoi > 50) {
+		soLuongMoi = 50;
+	}
 	if (!soLuongMoi || soLuongMoi <= 0) soLuongMoi = 1;
 
 	for (var p of currentuser.products) {
@@ -154,6 +157,9 @@ function tangSoLuong(masp) {
 	for (var p of currentuser.products) {
 		if (p.ma == masp) {
 			p.soluong++;
+			if (p.soluong > 50) {
+				p.soluong = 50;
+			}
 		}
 	}
 
