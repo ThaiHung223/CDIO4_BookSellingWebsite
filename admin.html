@@ -14,8 +14,8 @@
         crossorigin="anonymous">
 
     <!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.min.js"></script>
 
+   
     <!-- Our files -->
     <link rel="stylesheet" href="css/admin/style.css">
     <link rel="stylesheet" href="css/admin/progress.css">
@@ -54,21 +54,9 @@
     <!-- Khung hiển thị chính -->
     <div class="main">
         <div class="home">
-            <!-- <div class="canvasContainer">
-                <canvas id="myChart1"></canvas>
-            </div> -->
-
-            <div class="canvasContainer">
-                <canvas id="myChart2"></canvas>
-            </div>
-
-            <!-- <div class="canvasContainer">
-                <canvas id="myChart3"></canvas>
-            </div>
-
-            <div class="canvasContainer">
-                <canvas id="myChart4"></canvas>
-            </div> -->
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
         </div>
 
         <!-- Sản Phẩm -->
@@ -249,11 +237,36 @@
             </div>
         </div> <!-- // khach hang -->
     </div> <!-- // main -->
-
+ 
 
     <footer>
 
     </footer>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script>
+            const ctx = document.getElementById('myChart');
+
+  new Chart(ctx, {
+    type: 'bar',
+    data: {
+      labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+      datasets: [{
+        label: '# of Votes',
+        data: [12, 19, 3, 5, 2, 3],
+        borderWidth: 1
+      }]
+    },
+    options: {
+      scales: {
+        y: {
+          beginAtZero: true
+        }
+      }
+    }
+  });
+      
+    </script>
 </body>
 
 </html>

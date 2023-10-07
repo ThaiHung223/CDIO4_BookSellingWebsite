@@ -193,7 +193,7 @@ function logIn(form) {
     // Kiểm tra xem dữ liệu form có khớp với người dùng nào trong danh sách ko
     for (var u of listUser) {
         if (equalUser(newUser, u)) {
-            if(u.off) {
+            if (u.off) {
                 alert('Tài khoản này đang bị khoá. Không thể đăng nhập.');
                 return false;
             }
@@ -361,6 +361,10 @@ function getTongSoLuongSanPhamTrongGioHang(u) {
     var soluong = 0;
     for (var p of u.products) {
         soluong += p.soluong;
+
+    }
+    if (soluong > 50) {
+        return 50;
     }
     return soluong;
 }
@@ -509,10 +513,10 @@ function addTags(nameTag, link) {
 
 // Thêm sản phẩm vào trang
 function addProduct(p, ele, returnString) {
-	promo = new Promo(p.promo.name, p.promo.value); // class Promo
-	product = new Product(p.masp, p.name, p.img, p.price, p.star, p.rateCount, promo); // Class product
+    promo = new Promo(p.promo.name, p.promo.value); // class Promo
+    product = new Product(p.masp, p.name, p.img, p.price, p.star, p.rateCount, promo); // Class product
 
-	return addToWeb(product, ele, returnString);
+    return addToWeb(product, ele, returnString);
 }
 
 // Thêm topnav vào trang
@@ -722,7 +726,7 @@ function addPlc() {
 
 // https://stackoverflow.com/a/2450976/11898496
 function shuffleArray(array) {
-    let currentIndex = array.length,  randomIndex;
+    let currentIndex = array.length, randomIndex;
 
     // While there remain elements to shuffle...
     while (currentIndex != 0) {
@@ -733,7 +737,7 @@ function shuffleArray(array) {
 
         // And swap it with the current element.
         [array[currentIndex], array[randomIndex]] = [
-        array[randomIndex], array[currentIndex]];
+            array[randomIndex], array[currentIndex]];
     }
 
     return array;
@@ -789,7 +793,7 @@ function auto_Get_Database() {
         // img
         var img = a.getElementsByTagName('img')[0].src;
         console.log(img);
-   
+
     }
 }
 

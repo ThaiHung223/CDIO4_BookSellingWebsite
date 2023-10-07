@@ -115,6 +115,7 @@
 
 /* Nút thanh toán */
 .thanhtoan {
+    width: 45%;
     font-size: 1.5em;
     padding: 10px 15px;
     font-weight: bold;
@@ -125,6 +126,20 @@
 .thanhtoan:hover {
     background-color: #4CAF50; 
 }
+.thanhtoanck {
+    width: 55%;
+    font-size: 1.5em;
+    padding: 10px 15px;
+    font-weight: bold;
+    background-color: rgb(202, 107, 112);
+    cursor: pointer;
+    transition-duration: .2s;
+}
+.thanhtoanck:hover {
+    background-color: #b94b54; 
+
+}
+
 
 .xoaHet {
     border: none;
